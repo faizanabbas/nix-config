@@ -32,6 +32,7 @@ in
       nil
       nixd
       ripgrep
+      statix
       tree
       tree-sitter
     ]
