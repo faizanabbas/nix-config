@@ -2,18 +2,18 @@
   description = "Faizan's unified macOS & WSL Nix config";
 
   inputs = {
-    # Official Nix packages
+    # Get official Nix packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # home-manager (manages user configs)
+    # Manage user configs
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix-darwin (manages macOS system settings)
+    # Manage macOS system settings
     darwin.url = "github:nix-darwin/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix-homebrew (declarative homebrew management)
+    # Declarative homebrew management
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
@@ -36,7 +36,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        if system == "aarch64-darwin" || system == "x86_64-darwin" then
+        if system == "aarch64-darwin" then
           # macOS configuration (system-level config + home-manager)
           darwin.lib.darwinSystem {
             inherit system;
