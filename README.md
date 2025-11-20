@@ -16,7 +16,11 @@ xcode-select --install
 
 ### WSL/Linux
 
-Install Nix through your preferred method.
+Install Nix through your preferred method. I use the Determinate Systems installer CLI:
+
+```bash
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+```
 
 ## Installation
 
