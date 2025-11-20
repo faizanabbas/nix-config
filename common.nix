@@ -27,16 +27,19 @@ in
       jetbrains-mono
       jq
       lazygit
+      neovim
       nerd-fonts.jetbrains-mono
       nil
       nixd
       ripgrep
       tree
+      tree-sitter
     ]
     ++ (lib.optionals isDarwin [
       pinentry_mac
     ])
     ++ (lib.optionals isLinux [
+      gcc
       pinentry-curses
     ]);
 
@@ -47,6 +50,8 @@ in
   xdg.enable = true;
 
   home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
     NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
     GOPATH = "${config.xdg.dataHome}/go";
     PYTHONSTARTUP = "${config.xdg.configHome}/python/pythonrc";
