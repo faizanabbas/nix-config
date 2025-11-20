@@ -139,6 +139,7 @@ in
         useConfigOnly = true;
       };
       init.defaultBranch = "main";
+      credential.helper = "${pkgs.gh}/bin/gh auth git-credential";
       gpg.program = "${pkgs.gnupg}/bin/gpg";
     };
 
